@@ -6,3 +6,4 @@ labels = [0, 0, 1, 1]
 clf = tree.DecisionTreeClassifier()
 clf = clf.fit(features, labels)
 print(clf.predict([[150,0]]))
+# Example is from this video https://www.youtube.com/watch?v=cKxRvEZd3Mw
