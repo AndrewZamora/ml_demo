@@ -1,0 +1,23 @@
+{
+  "name": "ml-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewZamora/ml_demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrewZamora/ml_demo/issues"
+  },
+  "homepage": "https://github.com/AndrewZamora/ml_demo#readme",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^1.2.7"
+  }
+}
