@@ -13,13 +13,13 @@ const hidden = tf.layers.dense({
 model.add(hidden);
 // Create another layer
 const output = tf.layers.dense({
-    units: 3,
+    units: 1,
     // input shape is inferred from the previous layer
     activation: 'sigmoid'
 });
 model.add(output);
 // optimizer will minimize loss function (This case gradient descent)
-const sgdOptimizer = tf.train.sgd(0.1);
+const sgdOptimizer = tf.train.sgd(0.5);
 
 model.compile({
     optimizer: sgdOptimizer,
@@ -27,18 +27,36 @@ model.compile({
 });
 
 const xs = tf.tensor2d([
-    [0.25, 0.92],
-    [0.12, 0.3],
-    [0.4, 0.74],
+    [0, 0],
+    [0.5, 0.5],
+    [1, 1],
 ]);
 
 const ys = tf.tensor2d([
-    [0.1, 0.1, 0.02],
-    [0.4, 0.05, 0.22],
-    [0.2, 0.9, 0.02],
+    [1],
+    [0.05],
+    [0],
 ]);
-async 
-const history = model.fit(xs, ys);
+
+async function train() {
+    for (let i = 0; i < 1000; i++) {
+        const config = {
+            shuffle: true,
+            epochs: 10
+        }
+        const response = await model.fit(xs, ys, config);
+        console.log(response.history.loss[0])
+    }
+
+}
+
+train().then(() => {
+    let outputs = model.predict(xs);
+    outputs.print();
+});
+
+
+
 
 // const xs = tf.tensor2d([
 //     [0.25, 0.92],
